@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    ViewData["Title"] = "Get All Medicines";
+}
+@model List<HopePharmacy.Models.MedicineModel>;
+<html>
+<head>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align:center">
+                Get All Medicines
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="Create">
+                <i class="fas fa-user-plus"></i>
+                Add New Medicine
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Medicine Name</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (HopePharmacy.Models.MedicineModel item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.MedicineName
+                            </td>
+                           
+                            <td>
+                                <a asp-controller="Medicine" asp-action="Details" asp-route-Id="@item.MedicineId" class="fas fa-info-circle"></a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

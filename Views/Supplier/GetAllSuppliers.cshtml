@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Get All Suppliers";
+}
+@model List<HopePharmacy.Models.SupplierModel>;
+<html>
+<head>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align:center">
+               Get All Suppliers
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="Create">
+                <i class="fas fa-user-plus"></i>
+                Add New Supplier
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Supplier Name</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>Manufacture Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (HopePharmacy.Models.SupplierModel item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.SupplierName
+                            </td>
+                            <td>
+                                @item.Mobile
+                            </td>
+                            <td>
+                                @item.Address
+                            </td>
+                            <td>
+                                @item.ManufactureName
+                            </td>
+                            <td>
+                                <a asp-controller="Supplier" asp-action="Edit" asp-route-Id="@item.SupplierId" class="fas fa-pencil-alt"></a>
+                                <a asp-controller="Supplier" asp-action="Delete" asp-route-Id="@item.SupplierId" class="fas fa-trash-alt"></a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

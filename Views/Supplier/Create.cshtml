@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add New Supplier";
+}
+@model HopePharmacy.Models.SupplierModel;
+
+<html>
+<head>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align:center">
+                Add New Supplier
+            </h2>
+        </div>
+    </div>
+    <form asp-action="AddNewSupplier">
+        <div class="row">
+            <div class="col-md-4">
+                Supplier Name
+                <span class="text-danger">*</span>
+                <input type="text" asp-for="SupplierName" class="form-control" maxlength="50" />
+                <span asp-validation-for="SupplierName" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                Mobile
+                <span class="text-danger">*</span>
+                <input type="text" asp-for="Mobile" class="form-control" maxlength="10" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                Address
+                <input type="text" asp-for="Address" class="form-control" maxlength="50" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                Manufacture Name
+                <span class="text-danger">*</span>
+                <select class="form-control" asp-for="ManufactureId" asp-items="@(new SelectList(ViewBag.Manufacture,"ManufactureId","ManufactureName"))">
+                    <option value="">Please Select</option>
+                </select>
+                <span asp-validation-for="ManufactureId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <input type="submit" class="btn btn-primary" value="Save" />
+            </div>
+        </div>
+    </form>
+</body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+</html>
