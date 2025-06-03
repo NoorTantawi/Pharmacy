@@ -16,7 +16,7 @@ A web-based pharmacy management system built using **ASP.NET Core MVC** with **E
 - ASP.NET Core MVC (.NET 5)  
 - Entity Framework Core  
 - SQL Server  
-- Bootstrap 4 / 5 (for styling)  
+- Bootstrap 5 (for styling)  
 - Git + GitHub for version control
 
 ## 📁 Project Structure
